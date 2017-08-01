@@ -22,10 +22,10 @@ public class NodeImp implements Node {
 	private List<Arc> _outgoing;
 	private List<Arc> _ingoing;
 	
-	int bestStartTime;
-	int bestProcessor;
-	int currentStartTime;
-	int currentProcessor;
+	int _bestStartTime;
+	int _bestProcessor;
+	int _currentStartTime;
+	int _currentProcessor;
 	
 	/**
 	 * Constructor for the NodeImp to make a NodeImp object given a name and a weight
@@ -39,31 +39,26 @@ public class NodeImp implements Node {
 	
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return _name;
 	}
 
 	@Override
 	public int getWeight() {
-		// TODO Auto-generated method stub
 		return _weight;
 	}
 
 	@Override
 	public void addOutArc(Arc arc) {
-		// TODO Auto-generated method stub
 		_outgoing.add(arc);
 	}
 
 	@Override
 	public void addInArc(Arc arc) {
-		// TODO Auto-generated method stub
 		_ingoing.add(arc);
 	}
 
 	@Override
 	public List<Node> getPredecessors() {
-		// TODO Auto-generated method stub
 		List<Node> predecessors = new ArrayList<Node>();
 		for (Arc arc : _ingoing){
 			predecessors.add(arc.getSource());
@@ -73,7 +68,6 @@ public class NodeImp implements Node {
 
 	@Override
 	public List<Node> getSuccessors() {
-		// TODO Auto-generated method stub
 		List<Node> successors = new ArrayList<Node>();
 		for (Arc arc : _outgoing){
 			successors.add(arc.getDestination());
