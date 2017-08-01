@@ -6,7 +6,7 @@ public interface Arc {
 	 * Gets the weight attribute of the arc.
 	 * @return an integer value representing the weight of the arc
 	 */
-	int getWeight();
+	int getWeight(); // check commit
 	
 	/**
 	 * Gets the Destination Node of the arc. 
