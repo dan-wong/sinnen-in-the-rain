@@ -1,7 +1,9 @@
 package implementations;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import interfaces.Arc;
 import interfaces.Node;
@@ -22,10 +24,10 @@ public class NodeImp implements Node {
 	private List<Arc> _outgoing;
 	private List<Arc> _ingoing;
 	
-	int _bestStartTime;
-	int _bestProcessor;
-	int _currentStartTime;
-	int _currentProcessor;
+	private int _bestStartTime;
+	private int _bestProcessor;
+	private int _currentStartTime;
+	private int _currentProcessor;
 	
 	/**
 	 * Constructor for the NodeImp to make a NodeImp object given a name and a weight
@@ -59,20 +61,51 @@ public class NodeImp implements Node {
 
 	@Override
 	public List<Node> getPredecessors() {
-		List<Node> predecessors = new ArrayList<Node>();
-		for (Arc arc : _ingoing){
-			predecessors.add(arc.getSource());
-		}
-		return predecessors;
+		return _ingoing.stream()
+				.map(a -> a.getSource())
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<Node> getSuccessors() {
-		List<Node> successors = new ArrayList<Node>();
-		for (Arc arc : _outgoing){
-			successors.add(arc.getDestination());
-		}
-		return successors;
+		return _outgoing.stream()
+				.map(a -> a.getDestination())
+				.collect(Collectors.toList());
 	}
+
+	public int getBestProcessor() {
+		return _bestProcessor;
+	}
+
+	public void setBestProcessor(int bestProcessor) {
+		this._bestProcessor = bestProcessor;
+	}
+	
+	public int getCurrentProcessor() {
+		return _currentProcessor;
+	}
+
+	public void setCurrentProcessor(int currentProcessor) {
+		this._currentProcessor = currentProcessor;
+	}
+	
+	public int getBestStartTime() {
+		return _bestStartTime;
+	}
+
+	public void setBestStartTime(int bestStartTime) {
+		this._bestStartTime = bestStartTime;
+	}
+
+	public int getCurrentStartTime() {
+		return _currentStartTime;
+	}
+
+	public void setCurrentStartTime(int currentStartTime) {
+		this._currentStartTime = currentStartTime;
+	}
+
+	
+	
 
 }
