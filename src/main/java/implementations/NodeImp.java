@@ -37,6 +37,8 @@ public class NodeImp implements Node {
 	public NodeImp(String name, int weight){
 		_name = name;
 		_weight = weight;
+		_outgoing = new ArrayList<Arc>();
+		_ingoing = new ArrayList<Arc>();
 	}
 	
 	@Override
