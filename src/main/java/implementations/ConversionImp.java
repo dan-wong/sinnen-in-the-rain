@@ -1,12 +1,9 @@
-package conversion;
+package implementations;
 
 import implementations.ArcImpl;
 import implementations.NodeImp;
 import implementations.DAGImp;
-import interfaces.Arc;
-import interfaces.DAG;
-import interfaces.Input;
-import interfaces.Node;
+import interfaces.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,14 +13,14 @@ import java.util.List;
  *
  * @author Daniel
  */
-public class Conversion {
+public class ConversionImp implements Conversion {
     private List<String[]> _graphData;
 
     /**
-     * Constructor for Conversion module.
+     * Constructor for ConversionImp module.
      * @param input - Input class
      */
-    public Conversion(Input input) {
+    public ConversionImp(Input input) {
         _graphData = input.getGraphData();
     }
 

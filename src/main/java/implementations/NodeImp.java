@@ -106,8 +106,4 @@ public class NodeImp implements Node {
 	public void setCurrentStartTime(int currentStartTime) {
 		_currentStartTime = currentStartTime;
 	}
-
-	
-	
-
 }

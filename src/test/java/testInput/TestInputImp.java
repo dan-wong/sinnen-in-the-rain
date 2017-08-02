@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import input.InputImp;
+import implementations.input.InputImp;
 import interfaces.Input;
 
 /**

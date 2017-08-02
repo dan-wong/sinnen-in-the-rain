@@ -1,4 +1,4 @@
-package input;
+package implementations.input;
 
 import java.io.File;
 import java.io.FileNotFoundException;
