@@ -11,11 +11,11 @@ public class ArcImpl implements Arc{
 	
 	/**
 	 * Constructor for the ArcImpl. Creates an arc with weight, destination and source. 
-	 * @param weight
-	 * @param destination
-	 * @param source
+	 * @param weight int value for the weight
+	 * @param source the source Node
+	 * @param destination the destination Node
 	 */
-	public ArcImpl(int weight, Node destination, Node source){
+	public ArcImpl(int weight, Node source, Node destination){
 		_weight = weight;
 		_destination = destination;
 		_source = source;
