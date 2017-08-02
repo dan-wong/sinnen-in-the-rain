@@ -1,8 +1,8 @@
 package conversion;
 
 import implementations.ArcImpl;
-import implementations.DAGImp;
 import implementations.NodeImp;
+import implementations.DAGImp;
 import interfaces.Arc;
 import interfaces.DAG;
 import interfaces.Input;
