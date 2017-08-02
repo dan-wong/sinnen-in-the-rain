@@ -78,7 +78,7 @@ public class NodeImp implements Node {
 	}
 
 	public void setBestProcessor(int bestProcessor) {
-		this._bestProcessor = bestProcessor;
+		_bestProcessor = bestProcessor;
 	}
 	
 	public int getCurrentProcessor() {
@@ -86,7 +86,7 @@ public class NodeImp implements Node {
 	}
 
 	public void setCurrentProcessor(int currentProcessor) {
-		this._currentProcessor = currentProcessor;
+		_currentProcessor = currentProcessor;
 	}
 	
 	public int getBestStartTime() {
@@ -94,7 +94,7 @@ public class NodeImp implements Node {
 	}
 
 	public void setBestStartTime(int bestStartTime) {
-		this._bestStartTime = bestStartTime;
+		_bestStartTime = bestStartTime;
 	}
 
 	public int getCurrentStartTime() {
@@ -102,7 +102,7 @@ public class NodeImp implements Node {
 	}
 
 	public void setCurrentStartTime(int currentStartTime) {
-		this._currentStartTime = currentStartTime;
+		_currentStartTime = currentStartTime;
 	}
 
 	
