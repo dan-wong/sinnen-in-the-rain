@@ -1,5 +1,7 @@
 package conversion;
 
+import implementations.ArcImpl;
+import implementations.DAGImp;
 import implementations.NodeImp;
 import interfaces.Arc;
 import interfaces.DAG;
@@ -17,10 +19,18 @@ import java.util.List;
 public class Conversion {
     private List<String[]> _graphData;
 
+    /**
+     * Constructor for Conversion module.
+     * @param input - Input class
+     */
     public Conversion(Input input) {
         _graphData = input.getGraphData();
     }
 
+    /**
+     * Generate and return the DAG from the input data.
+     * @return DAG - Graph generated
+     */
     public DAG getDAG() {
         HashMap<String, Node> nodes = new HashMap<>();
 
@@ -30,17 +40,23 @@ public class Conversion {
 
             String[] namesArray = name.split("\\s+");
             if (namesArray.length == 2) { //If it's an arc
-                String srcName = namesArray[0];
-                String destName = namesArray[1];
-
-                Node srcNode = nodes.get(srcName);
-                Node destNode = nodes.get(destName);
+                Node srcNode = nodes.get(namesArray[0]);
+                Node destNode = nodes.get(namesArray[1]);
 
                 Arc arc = new ArcImpl(weight, srcNode, destNode);
+
+                srcNode.addOutArc(arc);
+                destNode.addInArc(arc);
             } else { //Else it's a node
                 Node node = new NodeImp(name, weight);
                 nodes.put(name, node);
             }
         }
+
+        //Add to the DAG object all the nodes
+        DAG dag = new DAGImp();
+        nodes.values().forEach(dag::add);
+
+        return dag;
     }
 }
