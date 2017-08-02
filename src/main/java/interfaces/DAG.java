@@ -19,5 +19,13 @@ public interface DAG {
 	 * @return {@code List<Node>} of all held {@code Node} objects
 	 */
 	public List<Node> getAllNodes();
+
+	/**
+	 * Searches through the DAG for a Node with the given name, returning that node if found.
+	 * If none is found, null is returned.
+	 * @param name - name of the node to search for
+	 * @return {@code Node} with the corresponding name
+	 */
+	public Node getNodeByName(String name);
 	
 }
