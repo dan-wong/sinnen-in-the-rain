@@ -22,28 +22,16 @@ public class ArcImpl implements Arc{
 	}
 	
 	@Override
-	/**
-	 * getter for the weight of the arc
-	 * @returns int representing the weight of the arc.
-	 */
 	public int getWeight() {
 		return _weight;
 	}
 	
 	@Override
-	/**
-	 * Getter for the destination node of the arc.
-	 * @returns Node representing the destination of the arc.
-	 */
 	public Node getDestination() {
 		return _destination;
 	}
 
 	@Override
-	/**
-	 * Getter for the source node of the arc.
-	 * @returns Node representing the source of the arc.
-	 */
 	public Node getSource() {
 		return _source;
 	}
