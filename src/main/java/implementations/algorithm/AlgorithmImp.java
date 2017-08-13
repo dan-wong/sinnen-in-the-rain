@@ -95,6 +95,10 @@ public class AlgorithmImp implements Algorithm {
 	 * @return true if the schedule is valid, false if not
 	 */
     private boolean checkValidSchedule(List<AlgorithmNodeImp> schedule) {
+    	if (schedule == null) {
+    		return false;
+		}
+
         for (int i = 0; i < schedule.size(); i++) {
 			//Get the currentNode's predecessors
 			Node currentNode = _dag.getNodeByName(schedule.get(i).getNodeName());
