@@ -25,3 +25,11 @@ local.properties
 
 # Locally stored "Eclipse launch configurations"
 *.launch
+
+### Intellij Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+*.iml
+.idea/*
+
+#.gitignore
+tinationqut
