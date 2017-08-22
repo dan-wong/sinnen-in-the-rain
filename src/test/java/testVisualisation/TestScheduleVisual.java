@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import implementations.ConversionImp;
+import implementations.io.ConversionImp;
 import implementations.algorithm.AlgorithmImp;
 import implementations.io.InputImp;
 import implementations.io.OutputImp;
-import interfaces.Conversion;
+import interfaces.io.Conversion;
 import interfaces.io.Input;
 import interfaces.structures.DAG;
 import visualisation.GraphView;
@@ -17,7 +17,7 @@ import visualisation.GraphViewImp;
 import visualisation.TableModel;
 
 public class TestScheduleVisual {
-	public static final String FILENAME = "test2.dot";
+	/*public static final String FILENAME = "test2.dot";
 	private AlgorithmImp alg;
 	private OutputImp output;
 	private DAG dag;
@@ -34,7 +34,9 @@ public class TestScheduleVisual {
 		
 		alg = new AlgorithmImp(dag, _cores);
 		output = new OutputImp (alg.getCurrentBestSchedule(),FILENAME);
-		_schedule = new TableModel(alg,dag,_cores);
+		_schedule = TableModel.getInstance();
+		_schedule.initModel(alg, dag, _cores);
+		
 		//GraphView schedule = new GraphViewImp(_schedule);
 	}
 	
@@ -61,7 +63,7 @@ public class TestScheduleVisual {
 	}
 	
 	//@Test
-	public void testData2(){
+	/*public void testData2(){
 		String[][] expectedData = { { "1", "A", "" },
 				{ "2", "A", "" },
 				{ "3", "C", "" },
@@ -71,8 +73,8 @@ public class TestScheduleVisual {
 				{ "7", "", "D" },
 				{ "8", "", "D" }
 		};
-		String[][] data = _schedule.initData();
+		String[][] data = _schedule.changeData();
 		assertArrayEquals(expectedData,data);
-	}
+	}*/
 	
 }

@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.io;
 
 import interfaces.structures.DAG;
 

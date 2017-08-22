@@ -3,12 +3,13 @@ package visualisation;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.graphicGraph.stylesheet.StyleConstants.Units;
+import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.Viewer;
 
-import implementations.ConversionImp;
+import implementations.io.ConversionImp;
 import implementations.algorithm.AlgorithmImp;
 import implementations.io.InputImp;
-import interfaces.Conversion;
+import interfaces.io.Conversion;
 import interfaces.io.Input;
 import interfaces.structures.DAG;
 import interfaces.structures.NodeSchedule;
@@ -27,6 +28,7 @@ import java.util.TimerTask;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
@@ -116,7 +118,8 @@ public class GraphStreamView extends JFrame implements GraphView {
 		}
 		
 		//Display the graph with auto layout
-		Viewer viewer = _GRAPH.display();
+		//Viewer viewer = _GRAPH.display(false);
+		
 	}
 	@Override
 	public void addButtonListener(ActionListener listener) {
@@ -132,6 +135,22 @@ public class GraphStreamView extends JFrame implements GraphView {
 		graphNode.setAttribute("ui.class","marked");
 	}
 	
+	/**
+	 * method to return GraphStream graph in a JPanel. Must call the constructor before calling this.
+	 * @author Pulkit
+	 * @return
+	 */
+	public JPanel getPanel(){
+		JPanel jp = new JPanel();
+		Viewer viewer = new Viewer(_GRAPH, Viewer.ThreadingModel.GRAPH_IN_ANOTHER_THREAD);
+		
+		viewer.enableAutoLayout();
+        ViewPanel viewPanel = viewer.addDefaultView(false);
+        //viewPanel.setVisible(true);
+        jp.add(viewPanel);
+        //jp.setVisible(true);
+        return jp;
+	}
 	/**
 	 * Method to assign different random colours to every processor
 	 * https://stackoverflow.com/questions/4246351/creating-random-colour-in-java

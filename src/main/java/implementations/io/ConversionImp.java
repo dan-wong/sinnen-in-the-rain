@@ -1,9 +1,9 @@
-package implementations;
+package implementations.io;
 
 import implementations.structures.ArcImpl;
 import implementations.structures.DAGImp;
 import implementations.structures.NodeImp;
-import interfaces.Conversion;
+import interfaces.io.Conversion;
 import interfaces.io.Input;
 import interfaces.structures.Arc;
 import interfaces.structures.DAG;

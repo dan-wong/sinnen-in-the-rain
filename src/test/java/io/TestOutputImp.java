@@ -1,10 +1,10 @@
 package io;
 
-import implementations.ConversionImp;
 import implementations.algorithm.AlgorithmImp;
+import implementations.io.ConversionImp;
 import implementations.io.InputImp;
 import implementations.io.OutputImp;
-import interfaces.Conversion;
+import interfaces.io.Conversion;
 import interfaces.io.Input;
 import interfaces.structures.DAG;
 import org.junit.Test;

@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
@@ -25,26 +26,23 @@ public class GraphViewImp extends JFrame implements GraphView {
 		        return super.getCellRenderer(row, column);
 		    }
 		};
+    
+		//table.scrollRectToVisible(table.getCellRect(table.getRowCount()-1, 0, true));
 		table.setFillsViewportHeight(true);
-		JScrollPane pane = new JScrollPane(table);
-		
-		/*addColumnBtn = new JButton("Change Schedule");
-		addColumnBtn.setActionCommand(GraphController.NEW_SCHEDULE);
-		
-		JPanel south = new JPanel();
-		south.add(addColumnBtn);*/
-		
-		add(pane, BorderLayout.CENTER);
-		//add(south, BorderLayout.SOUTH);
-		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(500, 520);
-		setVisible(true);
 	}
+	
+	public JScrollPane getPane(){
+		JScrollPane pane;
+		if (table!=null){
+			pane = new JScrollPane(table);
+			add(pane, BorderLayout.CENTER);
+		} else {
+			throw new RuntimeException("Table not initialised. Constructor for Table Model not called"
+					+ " or did not execute as expected.");
+		}
 
-	/*public void addButtonListener(ActionListener listener) {
-		addColumnBtn.addActionListener(listener);
-	}*/
+		return pane;
+	}
 	
 	public JTable getTable(){
 		return table;

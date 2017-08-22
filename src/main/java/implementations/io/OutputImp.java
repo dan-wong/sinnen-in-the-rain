@@ -13,14 +13,14 @@ import java.util.Scanner;
 /**
  * This class takes the result from the algorithm module, and 
  * prints this output to a .dot file.
- * 
+ *
  * The output file follows the exact format (and order) as the input file 
  * by reading from the input line-by-line and appending information if necessary. 
- * 
+ *
  * The user can specify a name for the output .dot file through the commandline
  * argument. If this is not provided, the default name is to append "_schedule" 
  * to the end of the input file name.
- * 
+ *
  * @author Victor
  *
  */
@@ -28,7 +28,7 @@ public class OutputImp implements Output {
 	private HashMap<String, NodeSchedule> _bestSchedule;
 	private String _inputPath;
 	private String _outputPath;
-	public final static String DEFAULT_OUT = "_schedule.dot"; 
+	public final static String DEFAULT_OUT = "_schedule.dot";
 	public final static String NEWLINE = System.getProperty("line.separator");
 
 	/**
@@ -52,7 +52,14 @@ public class OutputImp implements Output {
 
 	public void outputToFile() {
 		String output = generateStringOutput();
-		String outputPath = _inputPath.substring(0, _inputPath.length() - 4) + DEFAULT_OUT;
+		String outputPath;
+
+		//don't use default if there is a specified output path
+		if (_outputPath != null) {
+			outputPath = _outputPath;
+		} else {
+			outputPath = _inputPath.substring(0, _inputPath.length() - 4) + DEFAULT_OUT;
+		}
 		try {
 			PrintWriter writer = new PrintWriter(outputPath, "UTF-8");
 			writer.println(output);

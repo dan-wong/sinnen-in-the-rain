@@ -1,6 +1,6 @@
 package io;
 
-import implementations.ConversionImp;
+import implementations.io.ConversionImp;
 import implementations.io.InputImp;
 import interfaces.structures.Node;
 import org.junit.Before;
