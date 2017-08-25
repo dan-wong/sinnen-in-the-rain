@@ -1,8 +1,8 @@
 package interfaces.structures;
 
-import java.util.List;
-
 import interfaces.algorithm.AlgorithmNode;
+
+import java.util.List;
 
 /**
  * The class which implements this interface represents 
@@ -41,5 +41,7 @@ public interface Schedule {
     Schedule getNextSchedule(AlgorithmNode currentNode);
     
     void printSchedule();
+
+    int getIdleTime();
     
 }

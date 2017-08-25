@@ -78,6 +78,10 @@ public class AlgorithmImp implements Algorithm {
 						if (newSchedule.getTotalTime() >= _bestTime) {
 							continue;
 						}
+
+						if (costFunction(newSchedule, remainingNodes, i) >= _bestTime) {
+							continue;
+						}
 					} else { //Schedule is invalid, then pruning the subtree by moving to next node.
 						break;
 					}
@@ -110,6 +114,19 @@ public class AlgorithmImp implements Algorithm {
 				}
 			}
 		}
+	}
+
+	private int costFunction(Schedule st, List<AlgorithmNode> remaining, int index) {
+		int heuristicCost, remainingWeights = 0;
+
+		for (int i = 0; i < remaining.size(); i++) {
+			if (i != index) {
+				AlgorithmNode node = remaining.get(i);
+				remainingWeights += _dag.getNodeByName(node.getNodeName()).getWeight();
+			}
+		}
+
+		return st.getTotalTime() + (remainingWeights - st.getIdleTime()) / _numberOfCores;
 	}
 
 	private void setNewBestSchedule(Schedule finalSchedule) {
@@ -156,10 +173,7 @@ public class AlgorithmImp implements Algorithm {
 		}
 
 		//Check if all the predecessors were found
-		if (counter != predecessors.size()) {
-			return false;
-		}
-		return true;
+		return counter == predecessors.size();
 	}
 
 	/**
