@@ -1,16 +1,12 @@
 package implementations.structures;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import interfaces.algorithm.AlgorithmNode;
 import interfaces.structures.DAG;
 import interfaces.structures.Node;
 import interfaces.structures.Schedule;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * This class represents the abstraction of a schedule (or a partial schedule)
@@ -83,6 +79,16 @@ public class ScheduleImp implements Schedule {
 				_lastAlgNodeOnCore.put(lastNodeIndex, algNodes.get(lastNodeIndex));
 			}
 		}
+	}
+
+	public int getIdleTime() {
+		int idleTime = _totalTime * _numberOfCores;
+
+		for (AlgorithmNode aNode : _algNodes) {
+			idleTime -= _dag.getNodeByName(aNode.getNodeName()).getWeight();
+		}
+
+		return idleTime;
 	}
 
 	/**

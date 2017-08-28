@@ -1,8 +1,8 @@
 package interfaces.structures;
 
-import java.util.List;
-
 import interfaces.algorithm.AlgorithmNode;
+
+import java.util.List;
 
 /**
  * The schedule interface represents the abstraction of a schedule (or a partial schedule)
@@ -107,6 +107,8 @@ public interface Schedule {
      * A debugging method for printing schedule information.
      */
     void printSchedule();
+
+    int getIdleTime();
     
 	/**
 	 * This method returns the finish time for a particular core
